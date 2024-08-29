@@ -3,6 +3,7 @@ bin/
 obj/
 .cache/
 build/
+.config
 
 # Arquivos de configuração de usuário de IDE (Visual Studio, Rider, etc.)
 .vscode/
@@ -68,4 +69,5 @@ packages/
 .idea/
 .idea_modules/
 *.sln.iml
+
 
