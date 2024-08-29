@@ -1,0 +1,71 @@
+# Binário de saída, intermediário e cache
+bin/
+obj/
+.cache/
+build/
+
+# Arquivos de configuração de usuário de IDE (Visual Studio, Rider, etc.)
+.vscode/
+.idea/
+*.csproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Arquivos de log e temporários
+*.log
+*.tmp
+*.temp
+*.pid
+*.seed
+*.pid.lock
+
+# MonoGame Pipeline Tool
+*.mgcb~
+*.mgcontent
+
+# Arquivos gerados pela compilação
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.class
+*.idb
+*.tlog
+*.lastbuildstate
+
+# Arquivos gerados por testes
+TestResult.xml
+TestResults/
+
+# Pacotes NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+.nuget/
+
+# Backup do NuGet
+*.nupkg
+.nuget/
+project.lock.json
+project.fragment.lock.json
+
+# Arquivos do sistema operacional
+*.DS_Store
+*.AppleDouble
+*.LSOverride
+
+# Arquivos de cache de IDE
+.idea/
+*.sln.docstates
+
+# Diretório de pacotes (Visual Studio)
+packages/
+
+# Arquivos do Rider
+.idea/
+.idea_modules/
+*.sln.iml
+
