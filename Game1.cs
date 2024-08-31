@@ -12,7 +12,7 @@
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             _graphics.PreferredBackBufferWidth = 672;
-            _graphics.PreferredBackBufferHeight = 744;
+            _graphics.PreferredBackBufferHeight = 800;
         }
 
         protected override void Initialize()

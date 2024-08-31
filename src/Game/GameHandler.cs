@@ -18,7 +18,7 @@ public class GameHandler
     private Fruit _fruit;
     private float _gameStartTime = 0;
     private bool _IsGameStarted = false;
-    public static bool _IsGameOver = false;
+    public static bool _RestartGame = false;
 
     public GameHandler(ContentManager content, SpriteBatch spriteBatch)
     {
@@ -57,7 +57,21 @@ public class GameHandler
         _ghosts.ForEach(ghost => ghost.Reset());
         _gameStartTime = 0;
         _IsGameStarted = false;
-        _IsGameOver = false;
+        _RestartGame = false;
+    }
+
+    private void ResetGame()
+    {
+        if(_player.GameOver())
+        {
+            _player.Reset();
+            _ghosts.ForEach(ghost => ghost.Reset());
+            _gameStartTime = 0;
+            _IsGameStarted = false;
+            _RestartGame = true;
+            _player.Lives = 3;
+            Player.Level = 1;
+        }
     }
 
     public void Draw()
@@ -74,9 +88,10 @@ public class GameHandler
         _gameStartTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
         if(!_IsGameStarted && _gameStartTime > 2.0f) _IsGameStarted = true;
         
-
+        
+        ResetGame();
         if(Mapa.EmptyCoins()) Reset(); 
-        if(_IsGameOver) Reset();
+        if(_RestartGame) Reset();
         if(_IsGameStarted)
         {
             _player.Update(gameTime, _ghosts);

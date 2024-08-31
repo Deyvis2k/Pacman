@@ -76,7 +76,7 @@ public sealed class Fruit : Sprite
                 _fruit.Clear();
             }
         }
-        if(GameHandler._IsGameOver)
+        if(GameHandler._RestartGame)
         {
             timeToSpawn = 0;
             _timeToKill = 0;

@@ -3,7 +3,7 @@ namespace Pacman;
 
 public abstract class Sprite
 {
-  protected Texture2D Texture;
+  public Texture2D Texture;
   public Vector2 Position { get; set; }
   protected Color Tint { get; set; } = Color.White;
   protected int frameWidth;

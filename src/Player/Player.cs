@@ -3,6 +3,7 @@ namespace Pacman;
 public sealed class Player : Sprite
 {
   public static new Vector2 Position { get; private set; }
+  public int Lives {get; set;} = 3;
   private readonly List<Rectangle> _walls = new();
   private List<Rectangle> _coins = new();
   private List<Rectangle> _coinsCollected = new();
@@ -101,7 +102,7 @@ public sealed class Player : Sprite
   {
     InputHandler();
     bool isCollidingWithWall = PositionCollides(_Path[_lastDirection]);
-    GameOver(ghosts);
+    Dead(ghosts);
     ConsumeFruit();
 
     if (isCollidingWithWall)
@@ -147,16 +148,22 @@ public sealed class Player : Sprite
   }
 
     
-  public void GameOver(List<Enemy> ghosts)
+  public void Dead(List<Enemy> ghosts)
   {
      Rectangle PlayerRec = new Rectangle((int)Position.X, (int)Position.Y, 15, 15);
      foreach(var ghost in ghosts)
      {
        Rectangle ghostBounds = new Rectangle((int)ghost.Position.X, (int)ghost.Position.Y, 15, 15);
 
-       if(!ghost.IsEaten && !ghost.IsScared && ghostBounds.Intersects(PlayerRec)) GameHandler._IsGameOver = true;
+       if(!ghost.IsEaten && !ghost.IsScared && ghostBounds.Intersects(PlayerRec))
+        {
+            Lives -= 1;
+            GameHandler._RestartGame = true;
+        }
      }
   }
+
+  public bool GameOver() { return Lives == 0; }
    
 
   private void GetCoins(List<Enemy> ghosts)
