@@ -91,8 +91,8 @@ public abstract class Enemy : Sprite
         Rectangle ghostBounds = new Rectangle(
             (int)Position.X + (int)Velocity.X * Speed,
             (int)Position.Y + (int)Velocity.Y * Speed,
-            24,
-            24);
+            23,
+            23);
 
         foreach(var wall in _walls)
         {

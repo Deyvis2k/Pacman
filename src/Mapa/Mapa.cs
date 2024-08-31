@@ -237,7 +237,6 @@ public class Mapa
                 Rectangle destinationRectangle = new Rectangle(j * _tile_size, i * _tile_size, _tile_size, _tile_size);
                 spritebatch.Draw(_mapa_texture, destinationRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0f);
             }
-
         }
       }
    }
