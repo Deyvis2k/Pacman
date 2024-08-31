@@ -10,6 +10,7 @@ public sealed class Player : Sprite
   private string _lastDirection { get; set; } = "Right";
   public static string _Direction { get; set; } = "Right";
   public int _Coins { get; private set; }
+  public static int Level { get; set;} = 1;
   public static Dictionary<string, Vector2> _Path = new Dictionary<string, Vector2>()
   {
     {"Right", new Vector2(1, 0)},
@@ -67,6 +68,19 @@ public sealed class Player : Sprite
     }
   }
 
+  private void ConsumeFruit()
+  {
+      Rectangle playerBounds = new Rectangle((int)Position.X, (int)Position.Y, 23, 23);
+        
+      if(Fruit._ready && Fruit._fruit.Count > 0)
+        if(playerBounds.Intersects(Fruit._fruit[0])) 
+        {
+          Fruit._ready = false;
+          Fruit._fruit.Remove(Fruit._fruit[0]);
+          Fruit.timeToSpawn = 0f;
+        }
+  }
+
   private bool PositionCollides(Vector2 Velocity)
   {
     Rectangle playerBounds = new Rectangle(
@@ -89,6 +103,7 @@ public sealed class Player : Sprite
     bool isCollidingWithWall = PositionCollides(_Path[_lastDirection]);
 
     GameOver(ghosts);
+    ConsumeFruit();
 
     if (isCollidingWithWall)
     {
@@ -139,10 +154,12 @@ public sealed class Player : Sprite
      foreach(var ghost in ghosts)
      {
        Rectangle ghostBounds = new Rectangle((int)ghost.Position.X, (int)ghost.Position.Y, 15, 15);
-       if(PlayerRec.Intersects(ghostBounds) && !ghost.IsScared)
-       {
-         GameHandler._IsGameOver = true;
-       }
+
+       if(!ghost.IsScared || !ghost.IsEaten)
+          if(PlayerRec.Intersects(ghostBounds))
+          {
+              GameHandler._IsGameOver = true;
+          }
      }
   }
    

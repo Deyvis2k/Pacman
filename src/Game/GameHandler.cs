@@ -10,10 +10,12 @@ public class GameHandler
     private Texture2D _playerTexture;
     private Texture2D _mapaTexture;
     private Texture2D _ghostTexture;
+    private Texture2D _fruitTexture;
     private SpriteFont _fonte;
     private Player _player;
     private List<Enemy> _ghosts = new List<Enemy>();
     private ContentManager _content;
+    private Fruit _fruit;
     private float _gameStartTime = 0;
     private bool _IsGameStarted = false;
     public static bool _IsGameOver = false;
@@ -35,6 +37,10 @@ public class GameHandler
         _ghostTexture = _content.Load<Texture2D>("pacmansheet");
         _playerTexture = _content.Load<Texture2D>("Pacman16");
         _player = new Player(_playerTexture);
+
+        _fruitTexture = _content.Load<Texture2D>("fruits");
+
+        _fruit = new(_fruitTexture);
      
         _ghosts.Add(new Pinky(_ghostTexture));
         _ghosts.Add(new Blinky(_ghostTexture));
@@ -57,6 +63,7 @@ public class GameHandler
     public void Draw()
     {
         _mapa.DrawMap(_spriteBatch);
+        _fruit.Draw(_spriteBatch);
         _player.Draw(_spriteBatch);
         Gui.Draw(_spriteBatch, _fonte, _player);
         _ghosts.ForEach(ghost => ghost.Draw(_spriteBatch));
@@ -73,11 +80,11 @@ public class GameHandler
         if(_IsGameStarted)
         {
             _player.Update(gameTime, _ghosts);
+            _fruit.Update(gameTime);
             foreach (var ghost in _ghosts)
             {
                 ghost.Update(gameTime);
             }
-
         }
 
 
