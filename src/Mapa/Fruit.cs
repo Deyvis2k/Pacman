@@ -3,6 +3,7 @@ namespace Pacman;
 public sealed class Fruit : Sprite
 {
     public static float timeToSpawn = 0f;
+    private float _timeToKill = 0f;
     public static bool _ready = false;
     public static List<Rectangle> _fruit = new ();
     private int _frameCountX;
@@ -45,22 +46,43 @@ public sealed class Fruit : Sprite
 
     public void Update(GameTime gametime)
     {
+        SpawnFruit(gametime);
+        DestroyFruit(gametime);
+        UpdateTexture();
+    }
 
+    private void SpawnFruit(GameTime gametime)
+    {
         timeToSpawn += (float)gametime.ElapsedGameTime.TotalSeconds;
-        if (timeToSpawn > 5f && !_ready && _fruit.Count == 0)
+        if (timeToSpawn > 15.5f && !_ready && _fruit.Count == 0)
         {
             _ready = true;
             _fruit.Add(new Rectangle((int)Position.X, (int)Position.Y, frameWidth, frameHeight));
             timeToSpawn = 0;
         }
+    }
+
+    private void DestroyFruit(GameTime gametime)
+    {
+        
+        if(_ready && _fruit.Count > 0)
+        {
+            _timeToKill += (float)gametime.ElapsedGameTime.TotalSeconds;
+            if(_timeToKill > 6f)
+            {
+                _timeToKill = 0;
+                timeToSpawn = 0;
+                _ready = false;
+                _fruit.Clear();
+            }
+        }
         if(GameHandler._IsGameOver)
         {
             timeToSpawn = 0;
+            _timeToKill = 0;
             _fruit.Clear();
             _ready = false;
         }
-
-        UpdateTexture();
     }
 
     private void UpdateTexture()
