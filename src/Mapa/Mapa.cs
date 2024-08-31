@@ -40,12 +40,12 @@ public class Mapa
         {1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1}, 
         {0, 0, 0, 0, 0, 1, 3, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 3, 1, 0, 0, 0, 0, 0}, 
         {0, 0, 0, 0, 0, 1, 3, 1, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 1, 1, 3, 1, 0, 0, 0, 0, 0}, 
-        {0, 0, 0, 0, 0, 1, 3, 1, 1, 0, 1, 1, 1, 11,11, 1, 1, 1, 0, 1, 1, 3, 1, 0, 0, 0, 0,0}, 
+        {0, 0, 0, 0, 0, 1, 3, 1, 1, 0, 1, 1, 1, 11,1, 1, 1, 1, 0, 1, 1, 3, 1, 0, 0, 0, 0,0},
         {1, 1, 1, 1, 1, 1, 3, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 3, 1, 1, 1, 1, 1, 1}, 
-        {2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 0, 9, 0, 8, 0, 10, 1 ,0 ,0 ,0 ,3 ,0 ,0 ,0 ,0 ,0,2}, 
+        {2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 0, 9, 0, 8, 10, 0, 1 ,0 ,0 ,0 ,3 ,0 ,0 ,0 ,0 ,0,2}, 
         {1, 1, 1, 1, 1, 1, 3, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 3, 1, 1, 1, 1, 1, 1}, 
         {0, 0, 0, 0, 0, 1, 3, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 3, 1, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 1, 3, 1, 1, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 1, 1, 3, 1, 0, 0, 0, 0, 0}, 
+        {0, 0, 0, 0, 0, 1, 3, 1, 1, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 1, 3, 1, 0, 0, 0, 0, 0}, 
         {0, 0, 0, 0, 0, 1, 3, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 3, 1, 0, 0, 0, 0, 0}, 
         {1, 1, 1, 1, 1, 1, 3, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 3, 1, 1, 1, 1, 1, 1}, 
         {1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1}, 
@@ -101,16 +101,16 @@ public class Mapa
                 frameX = 0;
                 frameY = 1;
                 Rectangle sourceRectangle = new Rectangle(frameX * frameWidth, frameY * frameWidth, frameWidth, frameHeight);
-                Rectangle destinationRectangle = new Rectangle(j * _tile_size, i * _tile_size, _tile_size,_tile_size);
-                spritebatch.Draw(_coins_texture, destinationRectangle, sourceRectangle, Color.Yellow, 0f, Vector2.Zero, SpriteEffects.None, 0f);
+                Rectangle destinationRectangle = new Rectangle(j * _tile_size, i * _tile_size, _tile_size, _tile_size );
+                spritebatch.Draw(_coins_texture, destinationRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0f);
             }
             if(_mapa[i,j] == 4)
             {
                 frameX = 1;
                 frameY = 1;
                 Rectangle sourceRectangle = new Rectangle(frameX * frameWidth, frameY * frameWidth, frameWidth, frameHeight);
-                Rectangle destinationRectangle = new Rectangle(j * _tile_size, i * _tile_size, _tile_size, _tile_size);
-                spritebatch.Draw(_coins_texture, destinationRectangle, sourceRectangle, Color.Yellow, 0f, Vector2.Zero, SpriteEffects.None, 0f);
+                Rectangle destinationRectangle = new Rectangle(j * _tile_size, i * _tile_size, (int)(_tile_size * 1.3), (int)(_tile_size * 1.3));
+                spritebatch.Draw(_coins_texture, destinationRectangle, sourceRectangle, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0f);
             }
          }
       }

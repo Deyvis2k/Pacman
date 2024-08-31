@@ -46,7 +46,7 @@ public sealed class Inky : Enemy
         scaredTime -= (float)gametime.ElapsedGameTime.TotalSeconds;
         if(IsScared && scaredTime < 0) IsScared = false;
         if(IsScared) HunterMode = false;
-        if(isInPrison && HasReached(GetPosition(7))) isInPrison = false;
+        if(isInPrison && HasReached(GetPosition(7) - new Vector2(24,0))) isInPrison = false;
         if(IsEaten)
         {
             isInPrison = true;
@@ -115,7 +115,7 @@ public sealed class Inky : Enemy
     public override Vector2 GetNewDirection()
     {
          if(IsEaten) return GetPosition(8);
-         if(isInPrison) return GetPosition(7);
+         if(isInPrison) return GetPosition(7) - new Vector2(24,0);
 
          List<Vector2> positions = new List<Vector2>()
          {

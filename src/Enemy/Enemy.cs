@@ -11,7 +11,7 @@ public abstract class Enemy : Sprite
       protected readonly List<Rectangle> _walls = new List<Rectangle>();
       protected int textureCountX;
       protected int textureCountY;
-      protected const float scale = 1.5f;
+      protected const float scale = 1.65f;
       protected bool HunterMode { get; set;} = false;
       protected float time { get; set;} = 0;
       public bool IsEaten { get; set; } = false;

@@ -101,7 +101,7 @@ public sealed class Blinky: Enemy
         if(IsScared && scaredTime < 0.0f) IsScared = false;
 
         if(isInPrison)
-            if(HasReached(GetPosition(7))) isInPrison = false;
+            if(HasReached(GetPosition(7) - new Vector2(24,0))) isInPrison = false;
 
         if(IsEaten)
         {
@@ -132,7 +132,7 @@ public sealed class Blinky: Enemy
         }
 
 
-        if(isInPrison) return GetPosition(7);
+        if(isInPrison) return GetPosition(7) - new Vector2(24,0);
 
         return HunterMode ? Player.Position : new Vector2(24,24);
     }

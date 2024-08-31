@@ -35,7 +35,7 @@ public sealed class Player : Sprite
 
   public override void Draw(SpriteBatch spriteBatch)
   {
-      float scale = 1.5f;
+      float scale = 1.65f;
       Rectangle sourceRectangle = new Rectangle(frameX * frameWidth, frameY * frameHeight, frameWidth, frameHeight);
       Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, (int)(frameWidth * scale), (int)(frameHeight * scale));
       spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Tint, 0f, Vector2.Zero, SpriteEffects.None, 0f);

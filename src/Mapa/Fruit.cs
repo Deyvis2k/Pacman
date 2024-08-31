@@ -111,9 +111,9 @@ public sealed class Fruit : Sprite
     }
     public override void Draw(SpriteBatch spritebatch)
     {
-        float scale = 1.5f;
+        float scale = 2f;
         Rectangle sourceRectangle = new Rectangle(frameX * frameWidth, frameY * frameHeight, frameWidth, frameHeight);
-        Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, (int)(frameWidth * scale), (int)(frameHeight * scale));
+        Rectangle destinationRectangle = new Rectangle((int)Position.X + 5, (int)Position.Y - 5, (int)(frameWidth * scale), (int)(frameHeight * scale));
         if(_ready) spritebatch.Draw(Texture, destinationRectangle, sourceRectangle, Tint, 0f, Vector2.Zero, SpriteEffects.None, 0f);
     }
 }

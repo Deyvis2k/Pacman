@@ -92,7 +92,11 @@ public class GameHandler
         
         
         ResetGame();
-        if(Mapa.EmptyCoins()) Reset(); 
+        if(Mapa.EmptyCoins())
+        {
+            Player.Level++;
+            Reset(); 
+        }
         if(_RestartGame) Reset();
         if(_IsGameStarted)
         {
@@ -103,8 +107,6 @@ public class GameHandler
                 ghost.Update(gameTime);
             }
         }
-
-
     }
 }
 

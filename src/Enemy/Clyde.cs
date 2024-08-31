@@ -31,7 +31,7 @@ public sealed class Clyde: Enemy
     public override Vector2 GetNewDirection()
     {
          if(IsEaten) return GetPosition(8);
-         if(isInPrison) return GetPosition(7);
+         if(isInPrison) return GetPosition(7) - new Vector2(24, 0);
 
          List<Vector2> positions = new List<Vector2>()
          {
@@ -71,7 +71,7 @@ public sealed class Clyde: Enemy
         if(IsScared && scaredTime < 0.0f) IsScared = false;
 
         if(isInPrison)
-            if(HasReached(GetPosition(7))) isInPrison = false;
+            if(HasReached(GetPosition(7) - new Vector2(24,0))) isInPrison = false;
 
         if(IsEaten)
         {

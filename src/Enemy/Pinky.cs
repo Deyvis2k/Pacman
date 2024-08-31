@@ -98,7 +98,7 @@ public sealed class Pinky : Enemy
         if(IsScared && scaredTime < 0.0f) IsScared = false;
 
         if(isInPrison) 
-            if(HasReached(GetPosition(7))) isInPrison = false;
+            if(HasReached(GetPosition(7) - new Vector2(24,0))) isInPrison = false;
 
         if(IsEaten)
         {
@@ -114,7 +114,7 @@ public sealed class Pinky : Enemy
     public override Vector2 GetNewDirection()
     {
         if(IsEaten) return GetPosition(10);
-        if(isInPrison) return GetPosition(7);
+        if(isInPrison) return GetPosition(7) - new Vector2(24,0);
 
         if(HunterMode)
         {
