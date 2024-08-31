@@ -109,7 +109,6 @@ public sealed class Fruit : Sprite
                 break;
         }
     }
-
     public override void Draw(SpriteBatch spritebatch)
     {
         float scale = 1.5f;

@@ -118,7 +118,7 @@ public abstract class Enemy : Sprite
 
         if(IsScared && ghostBounds.Intersects(PlayerBounds)) IsEaten = true;
      }
-      protected bool HasReached(Vector2 position) { return Vector2.Distance(Position, position) < 1f; }
+      protected bool HasReached(Vector2 position) { return Vector2.Distance(Position, position) < 2f; }
 
       protected virtual Vector2 GetPosition(int pos) 
       { 

@@ -101,7 +101,6 @@ public sealed class Player : Sprite
   {
     InputHandler();
     bool isCollidingWithWall = PositionCollides(_Path[_lastDirection]);
-
     GameOver(ghosts);
     ConsumeFruit();
 
@@ -155,11 +154,7 @@ public sealed class Player : Sprite
      {
        Rectangle ghostBounds = new Rectangle((int)ghost.Position.X, (int)ghost.Position.Y, 15, 15);
 
-       if(!ghost.IsScared || !ghost.IsEaten)
-          if(PlayerRec.Intersects(ghostBounds))
-          {
-              GameHandler._IsGameOver = true;
-          }
+       if(!ghost.IsEaten && !ghost.IsScared && ghostBounds.Intersects(PlayerRec)) GameHandler._IsGameOver = true;
      }
   }
    
