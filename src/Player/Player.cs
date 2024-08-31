@@ -163,7 +163,7 @@ public sealed class Player : Sprite
      }
   }
 
-  public bool GameOver() { return Lives == 0; }
+  public bool GameOver() => Lives <= 0;
    
 
   private void GetCoins(List<Enemy> ghosts)

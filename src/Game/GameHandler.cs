@@ -9,6 +9,7 @@ public class GameHandler
     private Texture2D _default_texture;
     private Texture2D _playerTexture;
     private Texture2D _mapaTexture;
+    private Texture2D _coinTexture;
     private Texture2D _ghostTexture;
     private Texture2D _fruitTexture;
     private SpriteFont _fonte;
@@ -31,9 +32,10 @@ public class GameHandler
         _default_texture = new Texture2D(_spriteBatch.GraphicsDevice, 1, 1);
         _default_texture.SetData(new[] { Color.White });
 
-        _mapaTexture = _content.Load<Texture2D>("Map16");
+        _mapaTexture = _content.Load<Texture2D>("mapsprite");
+        _coinTexture = _content.Load<Texture2D>("Map16");
         _fonte = _content.Load<SpriteFont>("Fonte");
-        _mapa = new Mapa(_mapaTexture);
+        _mapa = new Mapa(_mapaTexture, _coinTexture);
         _ghostTexture = _content.Load<Texture2D>("pacmansheet");
         _playerTexture = _content.Load<Texture2D>("Pacman16");
         _player = new Player(_playerTexture);

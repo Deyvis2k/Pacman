@@ -117,4 +117,3 @@ public sealed class Fruit : Sprite
         if(_ready) spritebatch.Draw(Texture, destinationRectangle, sourceRectangle, Tint, 0f, Vector2.Zero, SpriteEffects.None, 0f);
     }
 }
-
