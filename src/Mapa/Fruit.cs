@@ -3,11 +3,12 @@ namespace Pacman;
 public sealed class Fruit : Sprite
 {
     public static float timeToSpawn = 0f;
-    private float _timeToKill = 0f;
+    public static float _timeToKill = 0f;
     public static bool _ready = false;
     public static List<Rectangle> _fruit = new ();
     private int _frameCountX;
     private int _frameCountY;
+    private Random _rand = new();
     private readonly Dictionary<string, int> _fruits = new()
     {
         {"Cherry", 1},
@@ -57,7 +58,7 @@ public sealed class Fruit : Sprite
         if (timeToSpawn > 15.5f && !_ready && _fruit.Count == 0)
         {
             _ready = true;
-            _fruit.Add(new Rectangle((int)Position.X, (int)Position.Y, frameWidth, frameHeight));
+            _fruit.Add(new Rectangle((int)Position.X, (int)Position.Y, (int)(frameWidth * 1.5f), (int)(frameHeight * 1.5f)));
             timeToSpawn = 0;
         }
     }
@@ -108,7 +109,16 @@ public sealed class Fruit : Sprite
                 frameY = _fruits["Grape"];
                 break;
         }
+
+        if(Player.Level > 6 && GameHandler._RestartGame) frameY = _fruits[RandomFruit()];
     }
+
+    private string RandomFruit()
+    {
+        List<string> fruits = new List<string>() {"Cherry", "Orange", "Apple", "Pear", "Strawberry", "Grape"};
+        return fruits[_rand.Next(0, 6)];
+    }
+
     public override void Draw(SpriteBatch spritebatch)
     {
         float scale = 2f;

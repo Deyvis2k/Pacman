@@ -59,6 +59,10 @@ public class GameHandler
         _ghosts.ForEach(ghost => ghost.Reset());
         _gameStartTime = 0;
         _IsGameStarted = false;
+        Fruit._ready = false;
+        Fruit._fruit.Clear();
+        Fruit._timeToKill = 0;
+        Fruit.timeToSpawn = 0;
         _RestartGame = false;
     }
 
@@ -71,6 +75,8 @@ public class GameHandler
             _gameStartTime = 0;
             _IsGameStarted = false;
             _RestartGame = true;
+            Fruit._fruit.Clear();
+            Fruit._ready = false;
             _player.Lives = 3;
             Player.Level = 1;
         }

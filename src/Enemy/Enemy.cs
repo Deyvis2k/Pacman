@@ -7,13 +7,13 @@ namespace Pacman;
 //inky corner position: (646,696)
 public abstract class Enemy : Sprite
 {
-      protected int Speed = 2;
       protected readonly List<Rectangle> _walls = new List<Rectangle>();
       protected int textureCountX;
       protected int textureCountY;
       protected const float scale = 1.65f;
       protected bool HunterMode { get; set;} = false;
       protected float time { get; set;} = 0;
+      protected int Speed => IsEaten ? 4 : 2;
       public bool IsEaten { get; set; } = false;
       public float scaredTime { get; set;} = 7;
       public bool isInPrison { get; set;}
@@ -91,8 +91,8 @@ public abstract class Enemy : Sprite
         Rectangle ghostBounds = new Rectangle(
             (int)Position.X + (int)Velocity.X * Speed,
             (int)Position.Y + (int)Velocity.Y * Speed,
-            23,
-            23);
+            IsEaten ? 21 : 23,
+            IsEaten ? 21 : 23);
 
         foreach(var wall in _walls)
         {
@@ -118,7 +118,7 @@ public abstract class Enemy : Sprite
 
         if(IsScared && ghostBounds.Intersects(PlayerBounds)) IsEaten = true;
      }
-      protected bool HasReached(Vector2 position) => Vector2.Distance(Position, position) < 2f; 
+      protected bool HasReached(Vector2 position) => Vector2.Distance(Position, position) < 3f; 
 
       protected virtual Vector2 GetPosition(int pos) 
       { 

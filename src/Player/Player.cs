@@ -11,7 +11,7 @@ public sealed class Player : Sprite
   private string _lastDirection { get; set; } = "Right";
   public static string _Direction { get; set; } = "Right";
   public int _Coins { get; private set; }
-  public static int Level { get; set;} = 1;
+  public static int Level { get; set;} = 7;
   public static Dictionary<string, Vector2> _Path = new Dictionary<string, Vector2>()
   {
     {"Right", new Vector2(1, 0)},
