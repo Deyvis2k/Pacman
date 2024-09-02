@@ -174,7 +174,7 @@ public sealed class Inky : Enemy
         Position += BestMove * Speed;
         lastMoveDirection = BestMove;
     }
-    
+
     public override void Reset()
     {
         Position = GetPosition(9);
