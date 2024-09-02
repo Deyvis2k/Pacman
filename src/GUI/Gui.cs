@@ -16,9 +16,9 @@ public static class Gui
     Texture2D playerTexture = player.Texture;
     int frameWidth = (int)playerTexture.Width / 6;
     int frameHeight = (int)playerTexture.Height / 4;
-    int frameX = 1;
+    int frameX = 2;
     int frameY = 0;
-    float scale = 1.2f;
+    float scale = 1.4f;
     for(int i = 0; i < player.Lives; i++)
     {
       Rectangle sourceRectangle = new Rectangle(frameX * frameWidth, frameY * frameHeight,frameWidth,frameHeight);

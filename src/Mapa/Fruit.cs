@@ -110,13 +110,13 @@ public sealed class Fruit : Sprite
                 break;
         }
 
-        if(Player.Level > 6 && GameHandler._RestartGame) frameY = _fruits[RandomFruit()];
+        if(Player.Level > 6 && _fruit.Count < 1) frameY = _fruits[RandomFruit()];
     }
 
     private string RandomFruit()
     {
-        List<string> fruits = new List<string>() {"Cherry", "Orange", "Apple", "Pear", "Strawberry", "Grape"};
-        return fruits[_rand.Next(0, 6)];
+        List<string> frutas = new List<string>{"Cherry", "Orange", "Apple", "Pear", "Strawberry", "Grape"};
+        return frutas[_rand.Next(0,6)];
     }
 
     public override void Draw(SpriteBatch spritebatch)

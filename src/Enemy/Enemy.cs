@@ -35,6 +35,9 @@ public abstract class Enemy : Sprite
       public virtual void UpdateConditions(GameTime gametime) {}
 
       public virtual Vector2 GetNewDirection() { return new Vector2(0,0); }
+    
+      //debug information
+      public virtual void DrawDesiredPosition(SpriteBatch spriteBatch, Texture2D ghostTexture) {}
 
       public virtual void UpdateTextures(Vector2 BestMove) {}
 

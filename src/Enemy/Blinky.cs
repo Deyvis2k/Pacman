@@ -4,7 +4,7 @@ namespace Pacman;
 //1.5 sprite scale
 public sealed class Blinky: Enemy
 {
-    private Vector2 lastMoveDirection;
+    public Vector2 lastMoveDirection;
     public Blinky(Texture2D texture) : base(texture)
     {
         Texture = texture;

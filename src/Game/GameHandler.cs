@@ -18,7 +18,7 @@ public class GameHandler
     private ContentManager _content;
     private Fruit _fruit;
     private float _gameStartTime = 0;
-    private bool _IsGameStarted = false;
+    public static bool _IsGameStarted = false;
     public static bool _RestartGame = false;
 
     public GameHandler(ContentManager content, SpriteBatch spriteBatch)
@@ -47,7 +47,7 @@ public class GameHandler
         _ghosts.Add(new Pinky(_ghostTexture));
         _ghosts.Add(new Blinky(_ghostTexture));
         _ghosts.Add(new Clyde(_ghostTexture));
-        _ghosts.Add(new Inky(_ghostTexture, _ghosts[1].Position));
+        _ghosts.Add(new Inky(_ghostTexture, _ghosts[1] as Blinky));
     }
 
     public void Initialize() {}
@@ -89,6 +89,7 @@ public class GameHandler
         _player.Draw(_spriteBatch);
         Gui.Draw(_spriteBatch, _fonte, _player);
         _ghosts.ForEach(ghost => ghost.Draw(_spriteBatch));
+
     }
 
     public void Update(GameTime gameTime, int screenX)

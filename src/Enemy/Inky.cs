@@ -4,8 +4,8 @@ namespace Pacman;
 public sealed class Inky : Enemy
 {
     private Vector2 lastMoveDirection;
-    private Vector2 blinkPosition;
-    public Inky(Texture2D texture, Vector2 BlinkPosition) : base (texture)
+    private Blinky _blinky;
+    public Inky(Texture2D texture, Blinky blinky) : base (texture)
     {
         Texture = texture;
         Position = GetPosition(9);
@@ -17,7 +17,7 @@ public sealed class Inky : Enemy
         frameHeight = Texture.Height / textureCountY;
         isInPrison = true;
         HunterMode = true;
-        blinkPosition = BlinkPosition;
+        _blinky = blinky;
         frameX = 2;
         frameY = 1;
     }
@@ -133,11 +133,10 @@ public sealed class Inky : Enemy
 
          if(HunterMode)
          {
-             Vector2 target = Player._Path[Player._Direction] * 24 * 4;
-             Vector2 desiredTarget = Vector2.Subtract(blinkPosition, target);
+             Vector2 PlayerTarget = Player.Position + Player._Path[Player._Direction] * 48;
+             Vector2 desiredTarget = PlayerTarget + (PlayerTarget - _blinky.Position);
              return desiredTarget;
          }
-
          return new Vector2(646,696);
     }
 
@@ -175,7 +174,7 @@ public sealed class Inky : Enemy
         Position += BestMove * Speed;
         lastMoveDirection = BestMove;
     }
-
+    
     public override void Reset()
     {
         Position = GetPosition(9);
