@@ -15,7 +15,7 @@ public sealed class Clyde: Enemy
         frameHeight = Texture.Height / textureCountY;
         LoadWalls();
         isInPrison = true;
-        HunterMode = true;
+        HunterMode = false;
         frameX = 3;
         frameY = 1;
     }

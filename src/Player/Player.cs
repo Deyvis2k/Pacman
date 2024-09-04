@@ -5,12 +5,13 @@ public sealed class Player : Sprite
       public static new Vector2 Position { get; private set; }
       public int Lives {get; set;} = 3;
       private readonly List<Rectangle> _walls = new();
+      public static int MaxScore = 0;
       private List<Rectangle> _coins = new();
       private List<Rectangle> _coinsCollected = new();
       private const int Speed = 2;
       private string _lastDirection { get; set; } = "Right";
       public static string _Direction { get; set; } = "Right";
-      public int _Coins { get; private set; }
+      public static int Score { get; set;} = 0;
       public static int Level { get; set;} = 1;
       public static Dictionary<string, Vector2> _Path = new Dictionary<string, Vector2>()
       {
@@ -78,6 +79,7 @@ public sealed class Player : Sprite
             {
               Fruit._ready = false;
               Fruit._fruit.Remove(Fruit._fruit[0]);
+              Score += 100;
               Fruit.timeToSpawn = 0f;
             }
       }
@@ -159,6 +161,7 @@ public sealed class Player : Sprite
             {
                 Lives -= 1;
                 GameHandler._RestartGame = true;
+                break;
             }
          }
       }
@@ -185,7 +188,6 @@ public sealed class Player : Sprite
                }
             }
             _coinsCollected.Add(coin);
-            _Coins++;
           }
         }
         
@@ -193,6 +195,9 @@ public sealed class Player : Sprite
         {
           Mapa._mapa[(int)coin.Y / 24, (int)coin.X / 24] = 0;
         }
+        
+        Score += _coinsCollected.Count * 5;
+
         _coins.RemoveAll(x => _coinsCollected.Contains(x));
       }
 
@@ -218,11 +223,11 @@ public sealed class Player : Sprite
 
       public void Reset()
       {
+          _coinsCollected.Clear();
+          _coins.Clear();
           InitializePosition();
           LoadWalls();
           LoadCoins();
-          _coinsCollected.Clear();
-          _Coins = 0;
           frameX = 0;
           frameX = 0;
           _lastDirection = "Right";

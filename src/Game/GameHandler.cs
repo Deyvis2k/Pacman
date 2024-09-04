@@ -78,6 +78,8 @@ public class GameHandler
             Fruit._fruit.Clear();
             Fruit._ready = false;
             _player.Lives = 3;
+            Player.MaxScore = Math.Max(Player.MaxScore, Player.Score);
+            Player.Score = 0;
             Player.Level = 1;
         }
     }

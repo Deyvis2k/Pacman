@@ -1,11 +1,11 @@
-
 namespace Pacman;
 
 public static class Gui
 {
   public static void Draw(SpriteBatch spriteBatch, SpriteFont font,Player player)
   {
-    spriteBatch.DrawString(font, $"Player {player}", new Vector2(10, 10), Color.White);
+    spriteBatch.DrawString(font, $"Score: {Player.Score}", new Vector2(Player.Score > 1000 ? 100: 150, 760), Color.White);
+    spriteBatch.DrawString(font, $"Max Score: {Player.MaxScore}", new Vector2(450, 760), Color.White);
 
     DrawPlayer(spriteBatch, player);
   }

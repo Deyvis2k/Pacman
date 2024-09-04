@@ -17,6 +17,7 @@ public sealed class Blinky: Enemy
         frameHeight = Texture.Height / textureCountY;
         frameX = 0;
         frameY = 2;
+        HunterMode = false;
         isInPrison = false;
     }
 
