@@ -18,7 +18,7 @@ public sealed class Fruit : Sprite
         {"Strawberry", 0},
         {"Grape", 5}
     };
-
+    
     public Fruit(Texture2D texture) : base(texture)
     {
         Texture  = texture;

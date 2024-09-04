@@ -182,7 +182,7 @@ public sealed class Pinky : Enemy
         IsEaten = false;
         IsScared = false;
         isInPrison = true;
-        HunterMode = false;
+        HunterMode = true;
         frameX = 1;
         frameY = 1;
     }
