@@ -75,7 +75,7 @@ public sealed class Player : Sprite
           Rectangle playerBounds = new Rectangle((int)Position.X, (int)Position.Y, 23, 23);
             
           if(Fruit._ready && Fruit._fruit.Count > 0)
-            if(playerBounds.Intersects(Fruit._fruit[0])) 
+            if(playerBounds.Intersects(Fruit._fruit[0]))
             {
               Fruit._ready = false;
               Fruit._fruit.Remove(Fruit._fruit[0]);
@@ -89,8 +89,8 @@ public sealed class Player : Sprite
         Rectangle playerBounds = new Rectangle(
             (int)(Position.X + Velocity.X * Speed),
             (int)(Position.Y + Velocity.Y * Speed),
-            23,
-            23);
+            24,
+            24);
 
         foreach(var wall in _walls)
         {

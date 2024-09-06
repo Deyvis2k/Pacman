@@ -9,14 +9,14 @@ public sealed class Fruit : Sprite
     private int _frameCountX;
     private int _frameCountY;
     private Random _rand = new();
-    private readonly Dictionary<string, int> _fruits = new()
+    public static readonly Dictionary<string, int> _fruits = new()
     {
-        {"Cherry", 1},
-        {"Orange", 2},
-        {"Apple", 3},
-        {"Pear", 4},
-        {"Strawberry", 0},
-        {"Grape", 5}
+        {"Cherry", 1}, //cherry
+        {"Orange", 2}, //orange
+        {"Apple", 3},  //apple
+        {"Pear", 4},   //pear
+        {"Strawberry", 0}, //strawberry
+        {"Grape", 5}  //grape
     };
     
     public Fruit(Texture2D texture) : base(texture)
@@ -50,6 +50,7 @@ public sealed class Fruit : Sprite
         SpawnFruit(gametime);
         DestroyFruit(gametime);
         UpdateTexture();
+
     }
 
     private void SpawnFruit(GameTime gametime)
@@ -58,7 +59,7 @@ public sealed class Fruit : Sprite
         if (timeToSpawn > 15.5f && !_ready && _fruit.Count == 0)
         {
             _ready = true;
-            _fruit.Add(new Rectangle((int)Position.X, (int)Position.Y, (int)(frameWidth * 1.5f), (int)(frameHeight * 1.5f)));
+            _fruit.Add(new Rectangle((int)Position.X, (int)Position.Y, (int)(frameWidth * 1.5), (int)(frameHeight * 1.5)));
             timeToSpawn = 0;
         }
     }
@@ -109,13 +110,12 @@ public sealed class Fruit : Sprite
                 frameY = _fruits["Grape"];
                 break;
         }
-
         if(Player.Level > 6 && _fruit.Count < 1) frameY = _fruits[RandomFruit()];
     }
 
     private string RandomFruit()
     {
-        List<string> frutas = new List<string>{"Cherry", "Orange", "Apple", "Pear", "Strawberry", "Grape"};
+        List<string> frutas = new(){"Cherry", "Orange", "Apple", "Pear", "Strawberry", "Grape"};
         return frutas[_rand.Next(0,6)];
     }
 

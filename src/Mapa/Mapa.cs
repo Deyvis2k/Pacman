@@ -81,7 +81,7 @@ public class Mapa
 
     public void DrawMap(SpriteBatch spritebatch)
     {
-      int targetWidth = 670;
+      int targetWidth = 671;
       int targetHeight = 744;
 
       int gridTotalWidth = map_width * _tile_size;

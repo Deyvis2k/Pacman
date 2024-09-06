@@ -90,6 +90,7 @@ public class GameHandler
         _fruit.Draw(_spriteBatch);
         _player.Draw(_spriteBatch);
         Gui.Draw(_spriteBatch, _fonte, _player);
+        Gui.DrawFruits(_spriteBatch, _fruitTexture);
         _ghosts.ForEach(ghost => ghost.Draw(_spriteBatch));
 
     }
