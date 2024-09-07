@@ -2,14 +2,14 @@ namespace Pacman;
 
 public static class Gui
 {
-    public static List<string> CollectedFruit = new ()
+    public static string[] CollectedFruit = new string[6]
     {
-        {"Cherry"},
-        {"Orange"},
-        {"Apple"},
-        {"Pear"},
-        {"Strawberry"},
-        {"Grape"},
+        "Cherry",
+        "Orange",
+        "Apple",
+        "Pear",
+        "Strawberry",
+        "Grape"
     };
 
   public static void Draw(SpriteBatch spriteBatch, SpriteFont font,Player player)
