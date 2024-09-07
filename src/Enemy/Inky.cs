@@ -28,17 +28,18 @@ public sealed class Inky : Enemy
         GetEaten();
         UpdateConditions(gametime);
         reversePosition(671);
+        Console.WriteLine(HunterMode);
     }
 
     public override void UpdateConditions(GameTime gametime)
     {
         time+= (float)gametime.ElapsedGameTime.TotalSeconds;
-        if(HunterMode && time > 20)
+        if(HunterMode && time > 18)
         {
             time = 0;
             HunterMode = false;
         }
-        else if (!HunterMode && time < 14)
+        else if (!HunterMode && time > 14)
         {
             time = 0;
             HunterMode = true;
@@ -173,6 +174,13 @@ public sealed class Inky : Enemy
         UpdateTextures(BestMove);
         Position += BestMove * Speed;
         lastMoveDirection = BestMove;
+    }
+
+
+    public override void DrawDesiredPosition(SpriteBatch spriteBatch, Texture2D ghostTexture)
+    {
+        Vector2 desired = GetNewDirection();
+        spriteBatch.Draw(ghostTexture, new Rectangle((int)desired.X, (int)desired.Y, 24, 24), Color.White);
     }
 
     public override void Reset()

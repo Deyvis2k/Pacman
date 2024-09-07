@@ -69,7 +69,7 @@ public class Mapa
         for(int j = 0; j < map_width; j++)
         {
           if(_mapa[i,j] == 3 || _mapa[i,j] == 4)
-          {
+              {
             return false;
           }
         }

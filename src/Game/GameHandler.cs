@@ -92,7 +92,6 @@ public class GameHandler
         Gui.Draw(_spriteBatch, _fonte, _player);
         Gui.DrawFruits(_spriteBatch, _fruitTexture);
         _ghosts.ForEach(ghost => ghost.Draw(_spriteBatch));
-
     }
 
     public void Update(GameTime gameTime, int screenX)

@@ -46,7 +46,7 @@ public sealed class Clyde: Enemy
                  if(Vector2.Distance(Player.Position, position) > 500) return position;
          }
         
-         if(HunterMode) return Vector2.Distance(Player.Position, Position) < 200 ? Player.Position : new Vector2(24,696);
+         if(HunterMode) return Vector2.Distance(Player.Position, Position) < 374 ? Player.Position : new Vector2(24,696);
 
          return new Vector2(24,696);
     }
@@ -55,7 +55,7 @@ public sealed class Clyde: Enemy
     {
         
         time+= (float)gametime.ElapsedGameTime.TotalSeconds;
-        if(HunterMode && time > 20)
+        if(HunterMode && time > 18)
         {
             time = 0;
             HunterMode = false;

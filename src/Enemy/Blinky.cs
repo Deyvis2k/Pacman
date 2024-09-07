@@ -87,7 +87,7 @@ public sealed class Blinky: Enemy
     public override void UpdateConditions(GameTime gametime)
     {
         time+= (float)gametime.ElapsedGameTime.TotalSeconds;
-        if(HunterMode && time > 20)
+        if(HunterMode && time > 18)
         {
             time = 0;
             HunterMode = false;

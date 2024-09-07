@@ -8,7 +8,7 @@ public sealed class Player : Sprite
       public static int MaxScore = 0;
       private List<Rectangle> _coins = new();
       private List<Rectangle> _coinsCollected = new();
-      private const int Speed = 2;
+      private const int Speed = 4;
       private string _lastDirection { get; set; } = "Right";
       public static string _Direction { get; set; } = "Right";
       public static int Score { get; set;} = 0;

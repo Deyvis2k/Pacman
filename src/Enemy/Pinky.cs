@@ -82,7 +82,7 @@ public sealed class Pinky : Enemy
     {
 
         time += (float)gametime.ElapsedGameTime.TotalSeconds;
-        if(HunterMode && time > 20)
+        if(HunterMode && time > 18)
         {
             time = 0;
             HunterMode = false;
