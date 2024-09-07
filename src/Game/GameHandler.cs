@@ -99,7 +99,6 @@ public class GameHandler
         _gameStartTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
         if(!_IsGameStarted && _gameStartTime > 2.0f) _IsGameStarted = true;
         
-        
         ResetGame();
         if(Mapa.EmptyCoins())
         {
