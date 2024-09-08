@@ -183,6 +183,7 @@ public sealed class Inky : Enemy
         IsEaten = false;
         isInPrison = true;
         HunterMode = true;
+        time = 0;
         frameX = 2;
         frameY = 1;
     }

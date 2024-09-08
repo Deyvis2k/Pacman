@@ -180,6 +180,7 @@ public sealed class Clyde: Enemy
         IsScared = false;
         isInPrison = true;
         HunterMode = false;
+        time = 0;
         frameX = 3;
         frameY = 1;
     }

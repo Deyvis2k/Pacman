@@ -183,6 +183,7 @@ public sealed class Blinky: Enemy
         IsScared = false;
         isInPrison = false;
         HunterMode = false;
+        time = 0;
         frameX = 0;
         frameY = 2;
     }
